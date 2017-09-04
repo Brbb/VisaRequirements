@@ -44,7 +44,8 @@ function run(db) {
 	fetchPage("https://en.wikipedia.org/wiki/Visa_requirements_for_Italian_citizens", function (body) {
 		// Use cheerio to find things in the page with css selectors.
 		var $ = cheerio.load(body);
-		var elements = $("tbody.tr").each(function () {
+		var elements = $("table.sortable.wikitable.jquery-tablesorter").children('tbody').children('tr');
+		elements.each(function () {
 			var value = $(this).text().trim();
 			updateRow(db, value);
 		});
