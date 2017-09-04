@@ -47,7 +47,7 @@ function run(db) {
 		var elements = $("table.sortable.wikitable.jquery-tablesorter").children('tbody').children('tr');
 		elements.each(function () {
 			var value = $(this).text().trim();
-			updateRow(db, value);
+			updateRow(db, 'OK');
 		});
 
 		readRows(db);
